@@ -59,7 +59,7 @@ Este es el script principal que ejecuta todo el flujo de trabajo:
 
 ## Resultados
 
-- **Error Absoluto Medio (MAE)**: El modelo tiene un MAE de `X.XX COP`, lo que indica la precisión de las predicciones. Los resultados están en **COP (Pesos Colombianos)** para reflejar un contexto local.
+- **Error Absoluto Medio (MAE)**: El modelo tiene un MAE de `2.615.889.02 COP`, lo que indica la precisión de las predicciones. Los resultados están en **COP (Pesos Colombianos)** para reflejar un contexto local.
   
 - **Visualizaciones**:
   - **Serie Temporal**: Muestra las ventas mensuales en COP con tendencias y estacionalidad.
