@@ -71,7 +71,7 @@ Este es el script principal que ejecuta todo el flujo de trabajo:
 
 1. **Clonar el Repositorio**:
 ```bash
-    git clone https://github.com/tu-usuario/tu-repositorio.git
+    git clone https://github.com/nortic97/regresion-lineal.git
     cd tu-repositorio
 ```
 2. **requirements.txt**
