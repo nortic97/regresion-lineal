@@ -1,21 +1,26 @@
 import pandas as pd
 import numpy as np
 
+import pandas as pd
+import numpy as np
+
 
 def generate_data():
     # Generar datos simulados
     dates = pd.date_range(start='2023-01-01', end='2024-12-31', freq='ME')
-    ventas = 3000 + 500 * np.sin(np.linspace(0, 2 * np.pi, len(dates))) + np.random.randint(-500, 500, len(dates))
 
-    # Convertir ventas de USD a COP (1 USD = 4000 COP)
-    tasa_cambio = 4000
-    ventas_cop = ventas * tasa_cambio
+    # Generar valores de ventas con un componente estacional y ruido aleatorio
+    ventas = 6500000 + 1500000 * np.sin(np.linspace(0, 2 * np.pi, len(dates))) + np.random.randint(-500000, 500000, len(dates))
 
+    # Asegurar que las ventas estén dentro del rango deseado (5,000,000 a 8,000,000 COP)
+    ventas = np.clip(ventas, 5000000, 8000000)
+
+    # Generar datos de promociones (0: no hay promoción, 1: hay promoción)
     promociones = np.random.choice([0, 1], size=len(dates), p=[0.7, 0.3])
 
     return pd.DataFrame({
         'Fecha': dates,
-        'Ventas': ventas_cop,  # Usar ventas en COP
+        'Ventas': ventas,  # Ventas en COP
         'Promocion': promociones
     })
 
