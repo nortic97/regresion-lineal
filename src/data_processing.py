@@ -5,12 +5,17 @@ import numpy as np
 def generate_data():
     # Generar datos simulados
     dates = pd.date_range(start='2023-01-01', end='2024-12-31', freq='ME')
-    ventas = 3000 + 500 * np.sin(np.linspace(0, 2*np.pi, len(dates))) + np.random.randint(-500, 500, len(dates))
+    ventas = 3000 + 500 * np.sin(np.linspace(0, 2 * np.pi, len(dates))) + np.random.randint(-500, 500, len(dates))
+
+    # Convertir ventas de USD a COP (1 USD = 4000 COP)
+    tasa_cambio = 4000
+    ventas_cop = ventas * tasa_cambio
+
     promociones = np.random.choice([0, 1], size=len(dates), p=[0.7, 0.3])
 
     return pd.DataFrame({
         'Fecha': dates,
-        'Ventas': ventas,
+        'Ventas': ventas_cop,  # Usar ventas en COP
         'Promocion': promociones
     })
 

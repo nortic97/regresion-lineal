@@ -24,7 +24,7 @@ def main():
 
     # Paso 4: Modelado predictivo
     model, mae = train_model(cleaned_data)
-    print(f"\nError Absoluto Medio del Modelo: {mae:.2f} USD")
+    print(f"\nError Absoluto Medio del Modelo: {mae:.2f} COP")
 
 
 if __name__ == "__main__":
