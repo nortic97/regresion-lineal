@@ -26,6 +26,19 @@ def main():
     model, mae = train_model(cleaned_data)
     print(f"\nError Absoluto Medio del Modelo: {mae:.2f} COP")
 
+    # Paso 5: Predicción para el próximo año
+    future_months = pd.DataFrame({
+        "Mes": list(range(1, 13)),  # Meses de 1 a 12
+        "Promocion": [0] * 12  # Suponemos que no hay promociones por defecto
+    })
+
+    # Hacer predicciones
+    future_months["Ventas_Predichas"] = model.predict(future_months)
+
+    # Guardar predicciones en un archivo CSV
+    future_months.to_csv("reports/predicted_sales.csv", index=False)
+    print("\nPredicciones guardadas en 'reports/predicted_sales.csv'.")
+
 
 if __name__ == "__main__":
     main()
